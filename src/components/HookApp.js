@@ -3,12 +3,13 @@
 // import SimpleForm from './useEffect/SimpleForm';
 // import Example from './useEffect/Example';
 // import FocusScreen from './useRef/FocusScreen';
-import RealExample from './useRef/RealExample';
+// import RealExample from './useRef/RealExample';
+import Layouteffect from './useLayoutEffect/Layouteffect';
 const HokkApp = () => {
   return (
     <>
       <div>
-        <RealExample />
+        <Layouteffect />
       </div>
     </>
   );
