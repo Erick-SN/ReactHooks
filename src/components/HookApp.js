@@ -4,12 +4,13 @@
 // import Example from './useEffect/Example';
 // import FocusScreen from './useRef/FocusScreen';
 // import RealExample from './useRef/RealExample';
-import Layouteffect from './useLayoutEffect/Layouteffect';
+// import Layouteffect from './useLayoutEffect/Layouteffect';
+import Memorize from './memoReact/Memorize';
 const HokkApp = () => {
   return (
     <>
       <div>
-        <Layouteffect />
+        <Memorize />
       </div>
     </>
   );
