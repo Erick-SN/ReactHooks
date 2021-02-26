@@ -5,15 +5,17 @@
 // import FocusScreen from './useRef/FocusScreen';
 // import RealExample from './useRef/RealExample';
 // import Layouteffect from './useLayoutEffect/Layouteffect';
-import Memorize from './memoReact/Memorize';
-const HokkApp = () => {
+// import Memorize from './memoReact/Memorize';
+import MemoHook from './useMemo/MemoHook';
+
+const HookApp = () => {
   return (
     <>
       <div>
-        <Memorize />
+        <MemoHook />
       </div>
     </>
   );
 };
 
-export default HokkApp;
+export default HookApp;

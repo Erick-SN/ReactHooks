@@ -10,7 +10,9 @@ const MemoHook = () => {
     }
     return `${iteraciones} veces`;
   };
+
   const memoProcesoPesado = useMemo(() => procesoPesado(state), [state]);
+
   return (
     <>
       <div>
@@ -22,7 +24,7 @@ const MemoHook = () => {
         <button className="btn btn-primary" onClick={() => adding()}>
           +1
         </button>
-        <button className="btn btn-primary" onClick={setMemo(!memo)}>
+        <button className="btn btn-primary" onClick={() => setMemo(!memo)}>
           Show/Hide {JSON.stringify(memo)}
         </button>
       </div>
