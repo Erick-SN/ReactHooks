@@ -7,13 +7,14 @@
 // import Layouteffect from './useLayoutEffect/Layouteffect';
 // import Memorize from './memoReact/Memorize';
 // import MemoHook from './useMemo/MemoHook';
-import CallbackHook from './useCallback/CallbackHook';
+// import CallbackHook from './useCallback/CallbackHook';
+import Padre from './Ejercicio/Padre';
 
 const HookApp = () => {
   return (
     <>
       <div>
-        <CallbackHook />
+        <Padre />
       </div>
     </>
   );
