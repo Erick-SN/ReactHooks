@@ -34,6 +34,14 @@ const ToDoApp = () => {
     dispatch(action);
   };
 
+  const handleToggle = (id) => {
+    const action = {
+      type: 'togle',
+      payload: id,
+    };
+    dispatch(action);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formValue.description.trim().length < 1) return;
@@ -59,7 +67,10 @@ const ToDoApp = () => {
             <ul className="list-group list-group-flush">
               {state.map((toDo, i) => (
                 <li key={toDo.id} className="list-group-item">
-                  <p className="text-center">
+                  <p
+                    className={`${toDo.done && 'complete'}`}
+                    onClick={() => handleToggle(toDo.id)}
+                  >
                     {i + 1}
                     {toDo.desc}
                   </p>
