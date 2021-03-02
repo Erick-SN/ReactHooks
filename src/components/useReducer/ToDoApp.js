@@ -25,6 +25,15 @@ const ToDoApp = () => {
   useEffect(() => {
     ls.setItem('todos', JSON.stringify(state));
   }, [state]);
+
+  const handleDelete = (id) => {
+    const action = {
+      type: 'delete',
+      payload: id,
+    };
+    dispatch(action);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formValue.description.trim().length < 1) return;
@@ -54,7 +63,12 @@ const ToDoApp = () => {
                     {i + 1}
                     {toDo.desc}
                   </p>
-                  <button className="btn btn-danger">Borrar</button>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => handleDelete(toDo.id)}
+                  >
+                    Borrar
+                  </button>
                 </li>
               ))}
             </ul>
@@ -66,7 +80,7 @@ const ToDoApp = () => {
               <input
                 type="text"
                 name="description"
-                value={formValue}
+                value={formValue.description}
                 autoComplete="off"
                 className="form-control"
                 onChange={handleChange}
