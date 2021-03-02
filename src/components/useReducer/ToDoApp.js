@@ -1,6 +1,7 @@
+import TodoList from './components/TodoList';
+import Form from './components/Form';
 import { useReducer } from 'react';
 import { toDoReducer } from './toDoReducer';
-import { useForm } from './hooks/useForm';
 import { useEffect } from 'react';
 import './styles.css';
 
@@ -18,9 +19,6 @@ const init = () => {
 
 const ToDoApp = () => {
   const [state, dispatch] = useReducer(toDoReducer, [], init);
-  const { state: formValue, handleChange, reset } = useForm({
-    description: '',
-  });
 
   useEffect(() => {
     ls.setItem('todos', JSON.stringify(state));
@@ -42,20 +40,12 @@ const ToDoApp = () => {
     dispatch(action);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (formValue.description.trim().length < 1) return;
-    const newToDo = {
-      id: new Date().getTime(),
-      desc: formValue.description,
-      done: false,
-    };
+  const handleAdd = (newToDo) => {
     const action = {
       type: 'add',
       payload: newToDo,
     };
     dispatch(action);
-    reset();
   };
   return (
     <>
@@ -64,45 +54,14 @@ const ToDoApp = () => {
         <hr />
         <div className="row">
           <div className="col-7">
-            <ul className="list-group list-group-flush">
-              {state.map((toDo, i) => (
-                <li key={toDo.id} className="list-group-item">
-                  <p
-                    className={`${toDo.done && 'complete'}`}
-                    onClick={() => handleToggle(toDo.id)}
-                  >
-                    {i + 1}
-                    {toDo.desc}
-                  </p>
-                  <button
-                    className="btn btn-danger"
-                    onClick={() => handleDelete(toDo.id)}
-                  >
-                    Borrar
-                  </button>
-                </li>
-              ))}
-            </ul>
+            <TodoList
+              tasks={state}
+              handleDelete={handleDelete}
+              handleToggle={handleToggle}
+            />
           </div>
           <div className="col-5">
-            <h4>Agregar ToDo</h4>
-            <hr />
-            <form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                name="description"
-                value={formValue.description}
-                autoComplete="off"
-                className="form-control"
-                onChange={handleChange}
-              />
-              <button
-                type="submit"
-                className="btn btn-outline-primary mt-1 btn-block"
-              >
-                Agregar
-              </button>
-            </form>
+            <Form handleAdd={handleAdd} />
           </div>
         </div>
       </div>
