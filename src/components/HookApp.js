@@ -8,13 +8,15 @@
 // import Memorize from './memoReact/Memorize';
 // import MemoHook from './useMemo/MemoHook';
 // import CallbackHook from './useCallback/CallbackHook';
-import Padre from './Ejercicio/Padre';
+// import Padre from './Ejercicio/Padre';
+// import IntroReducer from './useReducer/IntroReducer';
+import ToDoApp from './useReducer/ToDoApp';
 
 const HookApp = () => {
   return (
     <>
       <div>
-        <Padre />
+        <ToDoApp />
       </div>
     </>
   );
