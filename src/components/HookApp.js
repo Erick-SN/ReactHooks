@@ -10,13 +10,14 @@
 // import CallbackHook from './useCallback/CallbackHook';
 // import Padre from './Ejercicio/Padre';
 // import IntroReducer from './useReducer/IntroReducer';
-import ToDoApp from './useReducer/ToDoApp';
+// import ToDoApp from './useReducer/ToDoApp';
+import App from './useContext/App';
 
 const HookApp = () => {
   return (
     <>
       <div>
-        <ToDoApp />
+        <App />
       </div>
     </>
   );
