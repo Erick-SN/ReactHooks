@@ -1,6 +1,6 @@
 import { ADD_TASK, DELETE_TASK, DONE_TASK } from './todoTypes';
 
-export const toDoReducer = (state = [], action) => {
+export const todoReducer = (state = [], action) => {
   switch (action.type) {
     case ADD_TASK:
       return [...state, action.payload];

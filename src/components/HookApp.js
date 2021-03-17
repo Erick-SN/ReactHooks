@@ -11,7 +11,8 @@
 // import Padre from './Ejercicio/Padre';
 // import IntroReducer from './useReducer/IntroReducer';
 // import ToDoApp from './useReducer/ToDoApp';
-import App from './useContext/App';
+// import App from './useContext/App';
+import App from './useReducer/App';
 
 const HookApp = () => {
   return (
