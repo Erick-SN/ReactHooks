@@ -1,52 +1,17 @@
 import TodoList from './components/TodoList';
 import Form from './components/Form';
-import { useReducer } from 'react';
-import { toDoReducer } from './toDoReducer';
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
+import { todoContext } from './context/todoContext';
+
 import './styles.css';
-
 const ls = localStorage;
-const init = () => {
-  return JSON.parse(ls.getItem('todos')) || [];
-  //   return [
-  //     {
-  //       id: new Date().getTime(),
-  //       desc: 'Aprender React',
-  //       done: false,
-  //     },
-  //   ];
-};
-
 const ToDoApp = () => {
-  const [state, dispatch] = useReducer(toDoReducer, [], init);
-
+  const todosContext = useContext(todoContext);
+  const { state, handleDelete, handleAdd, handleToggle } = todosContext;
   useEffect(() => {
     ls.setItem('todos', JSON.stringify(state));
   }, [state]);
 
-  const handleDelete = (id) => {
-    const action = {
-      type: 'delete',
-      payload: id,
-    };
-    dispatch(action);
-  };
-
-  const handleToggle = (id) => {
-    const action = {
-      type: 'togle',
-      payload: id,
-    };
-    dispatch(action);
-  };
-
-  const handleAdd = (newToDo) => {
-    const action = {
-      type: 'add',
-      payload: newToDo,
-    };
-    dispatch(action);
-  };
   return (
     <>
       <div>

@@ -1,10 +1,12 @@
+import { ADD_TASK, DELETE_TASK, DONE_TASK } from './todoTypes';
+
 export const toDoReducer = (state = [], action) => {
   switch (action.type) {
-    case 'add':
+    case ADD_TASK:
       return [...state, action.payload];
-    case 'delete':
+    case DELETE_TASK:
       return state.filter((todo) => todo.id !== action.payload);
-    case 'togle':
+    case DONE_TASK:
       return state.map((todo) => {
         if (todo.id === action.payload) return { ...todo, done: !todo.done };
         else {
